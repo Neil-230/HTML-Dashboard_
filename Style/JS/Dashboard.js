@@ -565,7 +565,7 @@ function showNotification(message, type = 'success') {
         padding: '1rem 1.5rem',
         color: '#fff',
         display: 'flex',
-        align-items: 'center',
+        alignItems: 'center',
         gap: '12px',
         boxShadow: '0 10px 30px rgba(0, 0, 0, 0.25)',
         transform: 'translateX(50px) scale(0.95)',

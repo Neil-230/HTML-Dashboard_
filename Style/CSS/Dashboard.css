@@ -681,6 +681,21 @@ body {
     width: 100%;
 }
 
+/* Ensure disabled form controls match theme */
+.form-control:disabled,
+.form-control[disabled] {
+    background: var(--glass-bg);
+    color: var(--text-main);
+    opacity: 0.9;
+}
+.form-select:disabled,
+.form-select[disabled] {
+    background: var(--glass-bg);
+    color: var(--text-main);
+    opacity: 0.9;
+}
+
+/* Existing focus styles */
 .form-control:focus, .form-select:focus {
     background: rgba(var(--primary-rgb), 0.02);
     border-color: var(--primary);
@@ -1225,4 +1240,11 @@ body {
     color: var(--text-muted);
     font-size: 0.9rem;
     margin-bottom: 2rem;
+}
+
+/* Ensure select dropdown visibility in dark mode */
+[data-theme="dark"] .form-select,
+[data-theme="dark"] .form-select option {
+    background: var(--panel-bg);
+    color: var(--text-main);
 }
