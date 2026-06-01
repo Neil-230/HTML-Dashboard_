@@ -1,384 +1,264 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Products - Admin Dashboard</title>
-    <!-- Bootstrap 5.3.3 -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Font Awesome 6 -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <!-- Google Fonts - Nunito -->
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="Style/CSS/Product.css">
+    <title>Manage Products | Dashboard</title>
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Add, edit, delete, and search catalog products with high-end glassmorphism styling and seamless interactive JavaScript animations.">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts - Outfit -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <!-- Custom Unified CSS -->
+    <link rel="stylesheet" href="Style/CSS/Dashboard.css">
 </head>
 <body>
-    <!-- Sidebar -->
-    <div class="sidebar">
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
         <div class="sidebar-brand">
-            <img src="Images/buksu-logo.png" alt="Logo" class="logo">
+            <img src="Images/buksu-logo.png" alt="Penaflorida Logo" class="logo">
             <span class="sidebar-title">Penaflorida</span>
         </div>
         
         <nav class="sidebar-nav">
-            <a href="Index.html" class="nav-link">
+            <a href="Index.html" class="nav-link" id="nav-dashboard">
                 <i class="fas fa-tachometer-alt"></i>
                 <span>Dashboard</span>
             </a>
-            <a href="Products.html" class="nav-link active">
+            <a href="Products.html" class="nav-link active" id="nav-products">
                 <i class="fas fa-box"></i>
                 <span>Products</span>
             </a>
-            <a href="Reports.html" class="nav-link">
+            <a href="Reports.html" class="nav-link" id="nav-reports">
                 <i class="fas fa-chart-bar"></i>
                 <span>Reports</span>
             </a>
-            <a href="Accounts.html" class="nav-link">
+            <a href="Accounts.html" class="nav-link" id="nav-accounts">
                 <i class="fas fa-users"></i>
                 <span>Accounts</span>
             </a>
         </nav>
-        
+
         <div class="sidebar-footer">
-            <a href="Settings.html" class="nav-link">
+            <a href="Settings.html" class="nav-link" id="nav-settings">
                 <i class="fas fa-cog"></i>
                 <span>Settings</span>
             </a>
-            <a href="Login.html" class="nav-link">
+            <a href="Logout.html" class="nav-link logout-link" id="nav-logout">
                 <i class="fas fa-sign-out-alt"></i>
-                <span>Logout</span>
+                <span>Sign Out</span>
             </a>
         </div>
-    </div>
+    </aside>
 
-    <!-- Main Content -->
-    <div class="main-content">
-        <!-- Topbar -->
+    <!-- Main Content Area -->
+    <main class="main-content">
+        <!-- Top Navigation Bar -->
         <header class="topbar">
-            <div class="search-bar">
-                <i class="fas fa-search"></i>
-                <input type="text" class="form-control" placeholder="Search products...">
+            <div class="d-flex align-items-center gap-3">
+                <button class="mobile-toggle" aria-label="Toggle Sidebar" id="hamburger-menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="search-bar">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Search catalog..." aria-label="Search catalog products" id="global-search">
+                </div>
             </div>
+
             <div class="user-menu">
                 <div class="dropdown">
-                    <button class="btn dropdown-toggle" type="button" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-                        <img src="Images/hacker.png" alt="User" class="user-avatar">
-                        <span class="user-name">Admin</span>
+                    <button class="dropdown-toggle" type="button" id="userDropdown" aria-expanded="false">
+                        <img src="Images/hacker.png" alt="Neil Admin Avatar" class="user-avatar">
+                        <span class="user-name d-none d-sm-inline">Neil Hacker</span>
                     </button>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
-                        <li><a class="dropdown-item" href="#"><i class="fas fa-user me-2"></i>Profile</a></li>
-                        <li><a class="dropdown-item" href="#"><i class="fas fa-cog me-2"></i>Settings</a></li>
+                        <li><a class="dropdown-item" href="Settings.html"><i class="fas fa-user-cog"></i>Profile Settings</a></li>
+                        <li><a class="dropdown-item" href="Settings.html"><i class="fas fa-palette"></i>Theme Settings</a></li>
                         <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" href="#"><i class="fas fa-sign-out-alt me-2"></i>Logout</a></li>
+                        <li><a class="dropdown-item" href="Logout.html"><i class="fas fa-sign-out-alt"></i>Sign Out</a></li>
                     </ul>
                 </div>
             </div>
         </header>
-        
-        <main class="content">
-            <!-- Page Header -->
-            <div class="container-fluid py-4">
-                <div class="d-flex justify-content-between align-items-center mb-4">
-                    <div>
-                        <h1 class="page-title">Product Management</h1>
-                        <nav aria-label="breadcrumb">
-                            <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="Index.html">Dashboard</a></li>
-                                <li class="breadcrumb-item active" aria-current="page">Products</li>
-                            </ol>
-                        </nav>
-                    </div>
-                    <div class="d-flex gap-2">
-                        <button class="btn btn-outline-secondary">
-                            <i class="fas fa-download me-1"></i> Export
-                        </button>
-                        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addProductModal">
-                            <i class="fas fa-plus me-2"></i>Add Product
-                        </button>
-                    </div>
+
+        <!-- Dashboard Content -->
+        <div class="content animate-fade-in delay-1">
+            <div class="d-flex justify-content-between align-items-md-center flex-column flex-md-row mb-4 gap-3">
+                <div>
+                    <h1 class="page-title">Product Catalog</h1>
+                    <p class="page-subtitle">Easily track inventory, register new catalog lines, and modify stock states.</p>
                 </div>
+            </div>
 
-                <div class="row g-4">
-                    <div class="col-lg-8">
-                        <div class="card h-100">
-                            <div class="card-header flex-column flex-lg-row align-items-lg-center">
-                                <div>
-                                    <h5 class="mb-1"><i class="fas fa-boxes me-2 text-primary"></i>Product Catalog</h5>
-                                    <small class="text-muted">Monitor inventory status and manage featured products</small>
-                                </div>
-                                <div class="d-flex flex-wrap gap-2 mt-3 mt-lg-0">
-                                    <div class="input-group search-input">
-                                        <span class="input-group-text bg-transparent border-end-0"><i class="fas fa-search"></i></span>
-                                        <input type="text" class="form-control border-start-0" placeholder="Search products...">
-                                    </div>
-                                    <div class="dropdown">
-                                        <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="sortDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-                                            <i class="fas fa-sort me-1"></i> Sort By
-                                        </button>
-                                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="sortDropdown">
-                                            <li><a class="dropdown-item" href="#">Name (A-Z)</a></li>
-                                            <li><a class="dropdown-item" href="#">Name (Z-A)</a></li>
-                                            <li><hr class="dropdown-divider"></li>
-                                            <li><a class="dropdown-item" href="#">Price (Low to High)</a></li>
-                                            <li><a class="dropdown-item" href="#">Price (High to Low)</a></li>
-                                            <li><hr class="dropdown-divider"></li>
-                                            <li><a class="dropdown-item" href="#">Newest First</a></li>
-                                            <li><a class="dropdown-item" href="#">Oldest First</a></li>
-                                        </ul>
-                                    </div>
+            <div class="row g-4">
+                <!-- Products Grid Catalog -->
+                <div class="col-12 col-lg-8 order-2 order-lg-1">
+                    <div class="card">
+                        <div class="card-header flex-column flex-md-row align-items-start align-items-md-center gap-3">
+                            <div>
+                                <h5 class="mb-0"><i class="fas fa-boxes me-2"></i>Inventory Items</h5>
+                            </div>
+                            <div class="search-input w-100 w-md-auto ms-auto" style="max-width: 250px;">
+                                <div class="input-group">
+                                    <span class="input-group-text"><i class="fas fa-filter"></i></span>
+                                    <input type="text" class="form-control form-control-sm" placeholder="Filter items..." aria-label="Filter items">
                                 </div>
                             </div>
-                            <div class="card-body">
-                                <div class="row g-4 products-grid">
-                                    <!-- Product Card 1 -->
-                                    <div class="col-md-6">
-                                        <div class="product-card card h-100">
-                                            <div class="card-img-container">
-                                                <img src="Images/pc.jpg" class="card-img-top" alt="Gaming PC">
-                                            </div>
-                                            <div class="card-body">
-                                                <span class="product-category">Electronics</span>
-                                                <h5 class="card-title">Gaming PC Pro</h5>
-                                                <p class="card-text">High-performance gaming PC with RTX 3080, 32GB RAM, and 1TB SSD storage.</p>
-                                                <div class="product-meta">
-                                                    <div class="product-price">
-                                                        <span class="current-price">₱45,000</span>
-                                                        <span class="original-price">₱49,999</span>
-                                                    </div>
-                                                    <div class="product-stock">
-                                                        <span class="stock-available"><i class="fas fa-check-circle"></i> In Stock (25)</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="product-actions">
-                                                <button class="btn-action btn-edit" data-bs-toggle="tooltip" title="Edit product">
-                                                    <i class="fas fa-edit"></i>
-                                                </button>
-                                                <button class="btn-action btn-view" data-bs-toggle="tooltip" title="View details">
-                                                    <i class="fas fa-eye"></i>
-                                                </button>
-                                                <button class="btn-action btn-delete" data-bs-toggle="tooltip" title="Delete product">
-                                                    <i class="fas fa-trash-alt"></i>
-                                                </button>
-                                            </div>
-                                        </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="products-catalog">
+                                <!-- Product Card 1 -->
+                                <div class="product-card">
+                                    <div class="product-admin-overlay">
+                                        <div class="btn-icon-sm edit-btn"><i class="fas fa-edit"></i></div>
+                                        <div class="btn-icon-sm delete-btn delete"><i class="fas fa-trash-alt"></i></div>
                                     </div>
-
-                                    <!-- Product Card 2 -->
-                                    <div class="col-md-6">
-                                        <div class="product-card card h-100">
-                                            <div class="card-img-container">
-                                                <img src="https://via.placeholder.com/300x200/f8f9fc/4e73df?text=Product" class="card-img-top" alt="Wireless Earbuds">
-                                            </div>
-                                            <div class="card-body">
-                                                <span class="product-category">Audio</span>
-                                                <h5 class="card-title">Wireless Earbuds</h5>
-                                                <p class="card-text">Premium wireless earbuds with noise cancellation and 24-hour battery life.</p>
-                                                <div class="product-meta">
-                                                    <div class="product-price">
-                                                        <span class="current-price">₱3,499</span>
-                                                        <span class="original-price">₱4,199</span>
-                                                    </div>
-                                                    <div class="product-stock">
-                                                        <span class="stock-low"><i class="fas fa-exclamation-circle"></i> Low Stock (8)</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="product-actions">
-                                                <button class="btn-action btn-edit" data-bs-toggle="tooltip" title="Edit product">
-                                                    <i class="fas fa-edit"></i>
-                                                </button>
-                                                <button class="btn-action btn-view" data-bs-toggle="tooltip" title="View details">
-                                                    <i class="fas fa-eye"></i>
-                                                </button>
-                                                <button class="btn-action btn-delete" data-bs-toggle="tooltip" title="Delete product">
-                                                    <i class="fas fa-trash-alt"></i>
-                                                </button>
-                                            </div>
-                                        </div>
+                                    <div class="product-badge">ELECTRONICS</div>
+                                    <div class="product-img-wrapper">
+                                        <img src="Images/pc.jpg" alt="Gaming PC Pro hardware rendering">
                                     </div>
-
-                                    <!-- Product Card 3 -->
-                                    <div class="col-md-6">
-                                        <div class="product-card card h-100">
-                                            <div class="card-img-container">
-                                                <img src="https://via.placeholder.com/300x200/1cc88a/ffffff?text=Product" class="card-img-top" alt="Office Chair">
+                                    <div class="product-details">
+                                        <span class="product-category">Hardware</span>
+                                        <h5 class="product-title">Gaming PC Pro</h5>
+                                        <p class="product-desc">Unmatched performance with premium custom water cooling, RTX 4080, and Intel i9.</p>
+                                        <div class="product-meta-row">
+                                            <div class="product-price-box">
+                                                <span class="product-price">₱124,999</span>
+                                                <span class="product-old-price">₱135,000</span>
                                             </div>
-                                            <div class="card-body">
-                                                <span class="product-category">Furniture</span>
-                                                <h5 class="card-title">Ergonomic Office Chair</h5>
-                                                <p class="card-text">Comfortable office chair with lumbar support and adjustable height.</p>
-                                                <div class="product-meta">
-                                                    <div class="product-price">
-                                                        <span class="current-price">₱6,999</span>
-                                                    </div>
-                                                    <div class="product-stock">
-                                                        <span class="stock-available"><i class="fas fa-check-circle"></i> In Stock (42)</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="product-actions">
-                                                <button class="btn-action btn-edit" data-bs-toggle="tooltip" title="Edit product">
-                                                    <i class="fas fa-edit"></i>
-                                                </button>
-                                                <button class="btn-action btn-view" data-bs-toggle="tooltip" title="View details">
-                                                    <i class="fas fa-eye"></i>
-                                                </button>
-                                                <button class="btn-action btn-delete" data-bs-toggle="tooltip" title="Delete product">
-                                                    <i class="fas fa-trash-alt"></i>
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <!-- Product Card 4 -->
-                                    <div class="col-md-6">
-                                        <div class="product-card card h-100">
-                                            <div class="card-img-container">
-                                                <img src="https://via.placeholder.com/300x200/36b9cc/ffffff?text=Product" class="card-img-top" alt="Smartphone">
-                                            </div>
-                                            <div class="card-body">
-                                                <span class="product-category">Electronics</span>
-                                                <h5 class="card-title">Smartphone X Pro</h5>
-                                                <p class="card-text">Latest smartphone with triple camera system and 5G connectivity.</p>
-                                                <div class="product-meta">
-                                                    <div class="product-price">
-                                                        <span class="current-price">₱54,999</span>
-                                                    </div>
-                                                    <div class="product-stock">
-                                                        <span class="stock-out"><i class="fas fa-times-circle"></i> Out of Stock</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="product-actions">
-                                                <button class="btn-action btn-edit" data-bs-toggle="tooltip" title="Edit product">
-                                                    <i class="fas fa-edit"></i>
-                                                </button>
-                                                <button class="btn-action btn-view" data-bs-toggle="tooltip" title="View details">
-                                                    <i class="fas fa-eye"></i>
-                                                </button>
-                                                <button class="btn-action btn-delete" data-bs-toggle="tooltip" title="Delete product">
-                                                    <i class="fas fa-trash-alt"></i>
-                                                </button>
-                                            </div>
+                                            <span class="product-stock in-stock"><i class="fas fa-check-circle"></i> In Stock (25)</span>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="card-footer bg-white">
-                                <nav aria-label="Page navigation">
-                                    <ul class="pagination justify-content-center mb-0">
-                                        <li class="page-item disabled">
-                                            <a class="page-link" href="#" tabindex="-1" aria-disabled="true">
-                                                <i class="fas fa-chevron-left"></i>
-                                            </a>
-                                        </li>
-                                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                        <li class="page-item">
-                                            <a class="page-link" href="#">
-                                                <i class="fas fa-chevron-right"></i>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </nav>
+
+                                <!-- Product Card 2 -->
+                                <div class="product-card">
+                                    <div class="product-admin-overlay">
+                                        <div class="btn-icon-sm edit-btn"><i class="fas fa-edit"></i></div>
+                                        <div class="btn-icon-sm delete-btn delete"><i class="fas fa-trash-alt"></i></div>
+                                    </div>
+                                    <div class="product-badge">SERVICES</div>
+                                    <div class="product-img-wrapper">
+                                        <img src="Images/hacker.png" alt="Security Professional vulnerability penetration system audit">
+                                    </div>
+                                    <div class="product-details">
+                                        <span class="product-category">Cyber Security</span>
+                                        <h5 class="product-title">Security Audit</h5>
+                                        <p class="product-desc">Advanced vulnerability assessment, penetration testing, and thorough security mitigation plans.</p>
+                                        <div class="product-meta-row">
+                                            <div class="product-price-box">
+                                                <span class="product-price">₱25,000</span>
+                                            </div>
+                                            <span class="product-stock low-stock"><i class="fas fa-exclamation-circle"></i> Low Stock (3)</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Product Card 3 -->
+                                <div class="product-card">
+                                    <div class="product-admin-overlay">
+                                        <div class="btn-icon-sm edit-btn"><i class="fas fa-edit"></i></div>
+                                        <div class="btn-icon-sm delete-btn delete"><i class="fas fa-trash-alt"></i></div>
+                                    </div>
+                                    <div class="product-badge">SUPPORT</div>
+                                    <div class="product-img-wrapper">
+                                        <img src="https://images.unsplash.com/photo-1521737711867-e3b90473bd58?w=500&auto=format&fit=crop" alt="Premium Developer priority call server customer support pack">
+                                    </div>
+                                    <div class="product-details">
+                                        <span class="product-category">Support Service</span>
+                                        <h5 class="product-title">Premium support package</h5>
+                                        <p class="product-desc">Gain 24/7 priority developer call assistance, server monitoring, and emergency server backups.</p>
+                                        <div class="product-meta-row">
+                                            <div class="product-price-box">
+                                                <span class="product-price">₱8,999</span>
+                                            </div>
+                                            <span class="product-stock in-stock"><i class="fas fa-check-circle"></i> Active</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Product Card 4 -->
+                                <div class="product-card">
+                                    <div class="product-admin-overlay">
+                                        <div class="btn-icon-sm edit-btn"><i class="fas fa-edit"></i></div>
+                                        <div class="btn-icon-sm delete-btn delete"><i class="fas fa-trash-alt"></i></div>
+                                    </div>
+                                    <div class="product-badge">ELECTRONICS</div>
+                                    <div class="product-img-wrapper">
+                                        <img src="https://images.unsplash.com/photo-1593642632823-8f785ba67e45?w=500&auto=format&fit=crop" alt="Laptop ultra slim workstation layout">
+                                    </div>
+                                    <div class="product-details">
+                                        <span class="product-category">Hardware</span>
+                                        <h5 class="product-title">Ultrabook Workstation</h5>
+                                        <p class="product-desc">Extremely light, ultra-sleek workspace productivity laptop with OLED screen and 32GB RAM.</p>
+                                        <div class="product-meta-row">
+                                            <div class="product-price-box">
+                                                <span class="product-price">₱64,999</span>
+                                            </div>
+                                            <span class="product-stock out-stock"><i class="fas fa-times-circle"></i> Out of Stock</span>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
+                </div>
 
-                    <div class="col-lg-4">
-                        <div class="card">
-                            <div class="card-header">
-                                <h5 class="mb-0">Add New Product</h5>
-                            </div>
-                            <div class="card-body">
-                                <form id="productForm">
-                                    <div class="mb-3">
-                                        <label for="productName" class="form-label">Product Name</label>
-                                        <input type="text" id="productName" class="form-control" placeholder="Enter product name" required>
+                <!-- Add New Product Form Panel -->
+                <div class="col-12 col-lg-4 order-1 order-lg-2">
+                    <div class="card h-auto">
+                        <div class="card-header">
+                            <h5><i class="fas fa-plus-circle me-2"></i>Add New Product</h5>
+                        </div>
+                        <div class="card-body">
+                            <form id="productForm">
+                                <div class="mb-3">
+                                    <label for="productName" class="form-label">Product Title</label>
+                                    <input type="text" id="productName" class="form-control" placeholder="e.g. Gaming PC Pro" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="productCategory" class="form-label">Category</label>
+                                    <select id="productCategory" class="form-select" required>
+                                        <option value="" selected disabled>Select Category</option>
+                                        <option value="Electronics">Electronics</option>
+                                        <option value="Audio">Audio</option>
+                                        <option value="Furniture">Furniture</option>
+                                        <option value="Services">Services</option>
+                                        <option value="Other">Other</option>
+                                    </select>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="productPrice" class="form-label">Price (₱)</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text">₱</span>
+                                        <input type="number" id="productPrice" class="form-control" placeholder="0.00" min="0.01" step="0.01" required>
                                     </div>
-                                    <div class="mb-3">
-                                        <label for="productCategory" class="form-label">Category</label>
-                                        <select id="productCategory" class="form-select" required>
-                                            <option value="">Select category</option>
-                                            <option value="electronics">Electronics</option>
-                                            <option value="audio">Audio</option>
-                                            <option value="furniture">Furniture</option>
-                                            <option value="appliances">Appliances</option>
-                                            <option value="other">Other</option>
-                                        </select>
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="productPrice" class="form-label">Price</label>
-                                        <div class="input-group">
-                                            <span class="input-group-text">₱</span>
-                                            <input type="number" id="productPrice" class="form-control" placeholder="0.00" step="0.01" required>
-                                        </div>
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="productStock" class="form-label">Stock Quantity</label>
-                                        <input type="number" id="productStock" class="form-control" placeholder="Enter stock count" min="0" required>
-                                    </div>
-                                    <div class="mb-4">
-                                        <label for="productDescription" class="form-label">Description</label>
-                                        <textarea id="productDescription" class="form-control" rows="3" placeholder="Short product description"></textarea>
-                                    </div>
-                                    <button type="submit" class="btn btn-primary w-100">
-                                        <i class="fas fa-box-open me-2"></i>Create Product
-                                    </button>
-                                </form>
-                            </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="productStock" class="form-label">Stock Quantity</label>
+                                    <input type="number" id="productStock" class="form-control" placeholder="Quantity in inventory" min="1" required>
+                                </div>
+                                <div class="mb-4">
+                                    <label for="productDescription" class="form-label">Brief Specification / Description</label>
+                                    <textarea id="productDescription" class="form-control" rows="3" placeholder="Enter short specification info..."></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-primary w-100">
+                                    <i class="fas fa-box-open me-2"></i>Add Product Item
+                                </button>
+                            </form>
                         </div>
                     </div>
                 </div>
             </div>
-        </main>
-    </div>
+        </div>
+    </main>
 
-    <!-- Bootstrap JS Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Custom JS -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Highlight active nav link
-            const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-            document.querySelectorAll('.nav-link').forEach(link => {
-                if (link.getAttribute('href') === currentPage) {
-                    link.classList.add('active');
-                }
-            });
-            
-            // Enable Bootstrap tooltips
-            var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
-            var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
-                return new bootstrap.Tooltip(tooltipTriggerEl);
-            });
-
-            // Form submission
-            const productForm = document.getElementById('productForm');
-            if (productForm) {
-                productForm.addEventListener('submit', function(e) {
-                    e.preventDefault();
-                    alert('Product added successfully!');
-                    productForm.reset();
-                });
-            }
-
-            // Delete button confirmation
-            const deleteButtons = document.querySelectorAll('.btn-delete');
-            deleteButtons.forEach(button => {
-                button.addEventListener('click', function() {
-                    if (confirm('Are you sure you want to delete this product?')) {
-                        this.closest('.product-card').style.opacity = '0';
-                        setTimeout(() => {
-                            this.closest('.product-card').remove();
-                        }, 300);
-                    }
-                });
-            });
-        });
-    </script>
+    <!-- Bootstrap 5 JavaScript Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <!-- Custom Interactive JS -->
+    <script src="Style/JS/Dashboard.js"></script>
 </body>
 </html>

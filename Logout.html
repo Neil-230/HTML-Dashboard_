@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signing Out... | Penaflorida</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts - Outfit -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <!-- Custom Unified CSS -->
+    <link rel="stylesheet" href="Style/CSS/Dashboard.css">
+</head>
+<body>
+    <div class="portal-container">
+        <!-- Floating glass bubbles for rich visual wow -->
+        <div class="bg-bubble bubble-1"></div>
+        <div class="bg-bubble bubble-2"></div>
+        
+        <!-- Premium glassmorphic logout card -->
+        <div class="portal-card">
+            <div class="portal-logo mb-4">
+                <img src="Images/buksu-logo.png" alt="Penaflorida Logo">
+            </div>
+            <h1 class="portal-title">Signing You Out</h1>
+            <p class="portal-subtitle">Safely clearing secure administrator session files...</p>
+            
+            <!-- Sleek animated circular loader -->
+            <div class="d-flex justify-content-center my-4">
+                <div class="spinner-border text-primary" role="status" style="width: 3rem; height: 3rem; border-width: 0.25rem;">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+            </div>
+            
+            <p class="text-muted mb-4" style="font-size: 0.9rem;">
+                Redirecting you to the landing page in <strong id="logoutCountdown" class="text-primary">5</strong> seconds...
+            </p>
+            
+            <div class="d-flex justify-content-center gap-3">
+                <a href="Index.html" class="btn btn-primary btn-sm px-4">
+                    <i class="fas fa-sign-in-alt"></i> Log In Now
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Custom Interactive JS -->
+    <script src="Style/JS/Dashboard.js"></script>
+</body>
+</html>

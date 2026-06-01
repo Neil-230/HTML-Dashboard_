@@ -1,127 +1,213 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Dashboard</title>
+    <title>Admin Overview | Dashboard</title>
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Premium responsive administrator dashboard with high-end glassmorphism styling and seamless interactive JavaScript animations.">
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <!-- Google Fonts - Nunito -->
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="Style/CSS/Index.css">
-    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts - Nunito/Outfit -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <!-- Custom Unified CSS -->
+    <link rel="stylesheet" href="Style/CSS/Dashboard.css">
 </head>
 <body>
     <!-- Sidebar Navigation -->
     <aside class="sidebar">
-        <div class="dashtext">
-            <h3>DASHBOARD</h3>
+        <div class="sidebar-brand">
+            <img src="Images/buksu-logo.png" alt="Penaflorida Logo" class="logo">
+            <span class="sidebar-title">Penaflorida</span>
         </div>
-        <img src="Images/buksu-logo.png" alt="BUksU Logo" class="logo">
         
-        <nav class="menu">
-            <a href="Index.html" class="active">
+        <nav class="sidebar-nav">
+            <a href="Index.html" class="nav-link active" id="nav-dashboard">
                 <i class="fas fa-tachometer-alt"></i>
                 <span>Dashboard</span>
             </a>
-            <a href="Products.html">
+            <a href="Products.html" class="nav-link" id="nav-products">
                 <i class="fas fa-box"></i>
                 <span>Products</span>
             </a>
-            <a href="Reports.html">
+            <a href="Reports.html" class="nav-link" id="nav-reports">
                 <i class="fas fa-chart-bar"></i>
                 <span>Reports</span>
             </a>
-            <a href="Accounts.html">
+            <a href="Accounts.html" class="nav-link" id="nav-accounts">
                 <i class="fas fa-users"></i>
                 <span>Accounts</span>
             </a>
-            <a href="Settings.html" class="settings">
+        </nav>
+
+        <div class="sidebar-footer">
+            <a href="Settings.html" class="nav-link" id="nav-settings">
                 <i class="fas fa-cog"></i>
                 <span>Settings</span>
             </a>
-            <a href="D:\\Programming\\HTML-CSS\\Penaflorida-CSS-HTML\\Login.html" class="logout">
+            <a href="Logout.html" class="nav-link logout-link" id="nav-logout">
                 <i class="fas fa-sign-out-alt"></i>
-                <span>Logout</span>
+                <span>Sign Out</span>
             </a>
-        </nav>
+        </div>
     </aside>
 
-    <!-- Main Content -->
-    <main class="content">
+    <!-- Main Content Area -->
+    <main class="main-content">
         <!-- Top Navigation Bar -->
         <header class="topbar">
-            <div class="search-container">
-                <input type="text" placeholder="Search...">
+            <div class="d-flex align-items-center gap-3">
+                <button class="mobile-toggle" aria-label="Toggle Sidebar" id="hamburger-menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="search-bar">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Quick search..." aria-label="Search" id="global-search">
+                </div>
             </div>
-            <a href="#" class="profilepic">
-                <span>Neil Hacker</span>
-                <img src="Images/hacker.png" alt="Profile">
-            </a>
+
+            <div class="user-menu">
+                <div class="dropdown">
+                    <button class="dropdown-toggle" type="button" id="userDropdown" aria-expanded="false">
+                        <img src="Images/hacker.png" alt="Neil Admin Avatar" class="user-avatar">
+                        <span class="user-name d-none d-sm-inline">Neil Hacker</span>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+                        <li><a class="dropdown-item" href="Settings.html"><i class="fas fa-user-cog"></i>Profile Settings</a></li>
+                        <li><a class="dropdown-item" href="Settings.html"><i class="fas fa-palette"></i>Theme Settings</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="Logout.html"><i class="fas fa-sign-out-alt"></i>Sign Out</a></li>
+                    </ul>
+                </div>
+            </div>
         </header>
 
-        <!-- Dashboard Content -->
-        <div class="dashboard-data">
-            <h1>Dashboard Overview</h1>
+        <!-- Dashboard Scroll Content -->
+        <div class="content animate-fade-in delay-1">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <div>
+                    <h1 class="page-title">Dashboard Overview</h1>
+                    <p class="page-subtitle">Welcome back, Neil! Here's a brief look at your platform stats today.</p>
+                </div>
+            </div>
             
-            <!-- Stats Cards -->
-            <div class="studentinfo">
-                <div class="info">
-                    <h2>Total Users</h2>
-                    <p>1,240</p>
-                    <i class="fas fa-users"></i>
+            <!-- Dynamic Stats Cards -->
+            <div class="stats-grid">
+                <div class="stat-card stat-users animate-fade-in delay-1">
+                    <div class="stat-info">
+                        <h3>Total Users</h3>
+                        <div class="stat-number">1,240</div>
+                        <div class="stat-trend up">
+                            <i class="fas fa-arrow-up"></i> +12% this week
+                        </div>
+                    </div>
+                    <div class="stat-icon-wrapper">
+                        <i class="fas fa-users"></i>
+                    </div>
                 </div>
-                <div class="info">
-                    <h2>Total Sales</h2>
-                    <p>$45,230</p>
-                    <i class="fas fa-dollar-sign"></i>
+                <div class="stat-card stat-sales animate-fade-in delay-2">
+                    <div class="stat-info">
+                        <h3>Total Revenue</h3>
+                        <div class="stat-number">₱45,230</div>
+                        <div class="stat-trend up">
+                            <i class="fas fa-arrow-up"></i> +8.2% monthly
+                        </div>
+                    </div>
+                    <div class="stat-icon-wrapper">
+                        <i class="fas fa-dollar-sign"></i>
+                    </div>
                 </div>
-                <div class="info">
-                    <h2>Orders</h2>
-                    <p>356</p>
-                    <i class="fas fa-shopping-cart"></i>
+                <div class="stat-card stat-orders animate-fade-in delay-3">
+                    <div class="stat-info">
+                        <h3>Active Orders</h3>
+                        <div class="stat-number">356</div>
+                        <div class="stat-trend down">
+                            <i class="fas fa-arrow-down"></i> -1.5% from yesterday
+                        </div>
+                    </div>
+                    <div class="stat-icon-wrapper">
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
                 </div>
-                <div class="info">
-                    <h2>New Messages</h2>
-                    <p>24</p>
-                    <i class="fas fa-envelope"></i>
+                <div class="stat-card stat-messages animate-fade-in delay-4">
+                    <div class="stat-info">
+                        <h3>New Messages</h3>
+                        <div class="stat-number">24</div>
+                        <div class="stat-trend neutral">
+                            <i class="fas fa-minus"></i> Stable volume
+                        </div>
+                    </div>
+                    <div class="stat-icon-wrapper">
+                        <i class="fas fa-envelope"></i>
+                    </div>
                 </div>
             </div>
 
-            <!-- Latest Products Section -->
-            <section class="products-section">
-                <h2>Latest Products</h2>
-                <div class="topucontainer">
-                    <div class="topuser">
-                        <!-- Product Card 1 -->
-                        <div class="card">
-                            <img src="Images/pc.jpg" class="card-img-top" alt="Gaming PC">
-                            <div class="card-body">
-                                <h5 class="card-title">Gaming PC Pro</h5>
-                                <p class="card-text">High-performance gaming PC with RTX 3080, 32GB RAM, and 1TB SSD storage.</p>
-                                <a href="#" class="btn btn-primary">View Details</a>
+            <!-- Featured/Latest Products Showcase -->
+            <section class="products-section animate-fade-in delay-5">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h2 class="h4 font-weight-bold mb-0">
+                        <i class="fas fa-star text-primary me-2"></i>Featured Catalog Products
+                    </h2>
+                    <a href="Products.html" class="btn btn-sm btn-outline-primary">Manage Catalog</a>
+                </div>
+
+                <div class="row g-4">
+                    <!-- Product Item 1 -->
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <div class="product-card">
+                            <div class="product-badge">ELECTRONICS</div>
+                            <div class="product-img-wrapper">
+                                <img src="Images/pc.jpg" alt="Gaming PC Pro hardware specification rendering">
+                            </div>
+                            <div class="product-details">
+                                <span class="product-category">Hardware</span>
+                                <h5 class="product-title">Gaming PC Pro</h5>
+                                <p class="product-desc">Unmatched performance with premium custom water cooling, RTX 4080, and Intel i9.</p>
+                                <div class="product-meta-row">
+                                    <span class="product-price">₱124,999</span>
+                                    <span class="product-stock in-stock"><i class="fas fa-check-circle"></i> In Stock</span>
+                                </div>
                             </div>
                         </div>
+                    </div>
 
-                        <!-- Product Card 2 -->
-                        <div class="card">
-                            <img src="Images/hacker.png" class="card-img-top" alt="Security Service">
-                            <div class="card-body">
-                                <h5 class="card-title">Security Audit</h5>
-                                <p class="card-text">Professional security audit service for your systems and networks.</p>
-                                <a href="#" class="btn btn-primary">Learn More</a>
+                    <!-- Product Item 2 -->
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <div class="product-card">
+                            <div class="product-badge">IT SERVICES</div>
+                            <div class="product-img-wrapper">
+                                <img src="Images/hacker.png" alt="Cyber Security Professional Audit Interface">
+                            </div>
+                            <div class="product-details">
+                                <span class="product-category">Cyber Security</span>
+                                <h5 class="product-title">Security Audit</h5>
+                                <p class="product-desc">Advanced vulnerability assessment, penetration testing, and thorough security mitigation plans.</p>
+                                <div class="product-meta-row">
+                                    <span class="product-price">₱25,000</span>
+                                    <span class="product-stock in-stock"><i class="fas fa-check-circle"></i> Available</span>
+                                </div>
                             </div>
                         </div>
+                    </div>
 
-                        <!-- Product Card 3 -->
-                        <div class="card">
-                            <img src="https://via.placeholder.com/300x200/4e73df/ffffff?text=Product" class="card-img-top" alt="Premium Support">
-                            <div class="card-body">
-                                <h5 class="card-title">Premium Support</h5>
-                                <p class="card-text">24/7 premium technical support for all your IT needs.</p>
-                                <a href="#" class="btn btn-primary">Get Support</a>
+                    <!-- Product Item 3 -->
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <div class="product-card">
+                            <div class="product-badge">PREMIUM SUPPORT</div>
+                            <div class="product-img-wrapper">
+                                <img src="https://images.unsplash.com/photo-1521737711867-e3b90473bd58?w=500&auto=format&fit=crop" alt="Premium IT Customer Support center desk group portrait">
+                            </div>
+                            <div class="product-details">
+                                <span class="product-category">Support Service</span>
+                                <h5 class="product-title">Premium support package</h5>
+                                <p class="product-desc">Gain 24/7 priority developer call assistance, server monitoring, and emergency server backups.</p>
+                                <div class="product-meta-row">
+                                    <span class="product-price">₱8,999</span>
+                                    <span class="product-stock in-stock"><i class="fas fa-check-circle"></i> Active Support</span>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -130,37 +216,9 @@
         </div>
     </main>
 
-    <!-- Add any additional scripts here -->
-    <script>
-        // Add any JavaScript functionality here
-        document.addEventListener('DOMContentLoaded', function() {
-            // Add active class to current page link
-            const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-            const navLinks = document.querySelectorAll('.menu a');
-            
-            navLinks.forEach(link => {
-                if (link.getAttribute('href') === currentPage) {
-                    link.classList.add('active');
-                }
-            });
-            
-            // Add animation to stats on scroll
-            const observerOptions = {
-                threshold: 0.5
-            };
-            
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('animate');
-                    }
-                });
-            }, observerOptions);
-            
-            document.querySelectorAll('.info').forEach(info => {
-                observer.observe(info);
-            });
-        });
-    </script>
+    <!-- Bootstrap 5 JavaScript Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <!-- Custom Interactive JS -->
+    <script src="Style/JS/Dashboard.js"></script>
 </body>
 </html>
