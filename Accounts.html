@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accounts - Dashboard</title>
+    <!-- Bootstrap 5.3.3 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Google Fonts - Nunito -->
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="Style/CSS/Account.css">
+</head>
+<body>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="sidebar-brand">
+            <img src="Images/buksu-logo.png" alt="Logo" class="logo">
+            <span class="sidebar-title">Penaflorida</span>
+        </div>
+        <nav class="sidebar-nav">
+            <a href="Index.html" class="nav-link">
+                <i class="fas fa-tachometer-alt"></i>
+                <span>Dashboard</span>
+            </a>
+            <a href="Products.html" class="nav-link">
+                <i class="fas fa-box"></i>
+                <span>Products</span>
+            </a>
+            <a href="Reports.html" class="nav-link">
+                <i class="fas fa-chart-bar"></i>
+                <span>Reports</span>
+            </a>
+            <a href="Accounts.html" class="nav-link active">
+                <i class="fas fa-users"></i>
+                <span>Accounts</span>
+            </a>
+        </nav>
+        <div class="sidebar-footer">
+            <a href="Settings.html" class="nav-link">
+                <i class="fas fa-cog"></i>
+                <span>Settings</span>
+            </a>
+            <a href="Login.html" class="nav-link">
+                <i class="fas fa-sign-out-alt"></i>
+                <span>Logout</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Topbar -->
+        <header class="topbar">
+            <div class="search-bar">
+                <i class="fas fa-search"></i>
+                <input type="text" class="form-control" placeholder="Search accounts...">
+            </div>
+            <div class="user-menu">
+                <div class="dropdown">
+                    <button class="btn dropdown-toggle" type="button" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                        <img src="Images/hacker.png" alt="User" class="user-avatar">
+                        <span class="user-name">Admin</span>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+                        <li><a class="dropdown-item" href="#"><i class="fas fa-user me-2"></i>Profile</a></li>
+                        <li><a class="dropdown-item" href="#"><i class="fas fa-cog me-2"></i>Settings</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="#"><i class="fas fa-sign-out-alt me-2"></i>Logout</a></li>
+                    </ul>
+                </div>
+            </div>
+        </header>
+
+        <!-- Page Content -->
+        <main class="content">
+            <h1 class="page-title">Account Management</h1>
+            
+            <div class="row">
+                <!-- Account List -->
+                <div class="col-lg-8">
+                    <div class="row g-4">
+                        <!-- Account Card 1 -->
+                        <div class="col-md-6 col-lg-6">
+                            <div class="card h-100">
+                                <div class="card-body text-center">
+                                    <img src="Images/hacker.png" alt="User" class="rounded-circle mb-3" width="100">
+                                    <h5 class="card-title mb-1">Neil</h5>
+                                    <span class="badge bg-primary mb-3">Admin</span>
+                                    <div class="d-flex justify-content-center gap-2">
+                                        <button class="btn btn-sm btn-outline-primary">
+                                            <i class="fas fa-edit me-1"></i> Edit
+                                        </button>
+                                        <button class="btn btn-sm btn-outline-danger">
+                                            <i class="fas fa-trash me-1"></i> Delete
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Account Card 2 -->
+                        <div class="col-md-6 col-lg-6">
+                            <div class="card h-100">
+                                <div class="card-body text-center">
+                                    <img src="Images/hacker.png" alt="User" class="rounded-circle mb-3" width="100">
+                                    <h5 class="card-title mb-1">Jaime</h5>
+                                    <span class="badge bg-success mb-3">User</span>
+                                    <div class="d-flex justify-content-center gap-2">
+                                        <button class="btn btn-sm btn-outline-primary">
+                                            <i class="fas fa-edit me-1"></i> Edit
+                                        </button>
+                                        <button class="btn btn-sm btn-outline-danger">
+                                            <i class="fas fa-trash me-1"></i> Delete
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Account Card 3 -->
+                        <div class="col-md-6 col-lg-6">
+                            <div class="card h-100">
+                                <div class="card-body text-center">
+                                    <img src="Images/hacker.png" alt="User" class="rounded-circle mb-3" width="100">
+                                    <h5 class="card-title mb-1">NoobMaster69</h5>
+                                    <span class="badge bg-warning text-dark mb-3">Special</span>
+                                    <div class="d-flex justify-content-center gap-2">
+                                        <button class="btn btn-sm btn-outline-primary">
+                                            <i class="fas fa-edit me-1"></i> Edit
+                                        </button>
+                                        <button class="btn btn-sm btn-outline-danger">
+                                            <i class="fas fa-trash me-1"></i> Delete
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Add Account Form -->
+                <div class="col-lg-4">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5 class="mb-0">Add New Account</h5>
+                        </div>
+                        <div class="card-body">
+                            <form>
+                                <div class="mb-3">
+                                    <label for="username" class="form-label">Username</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text"><i class="fas fa-user"></i></span>
+                                        <input type="text" class="form-control" id="username" placeholder="Enter username" required>
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="email" class="form-label">Email address</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                                        <input type="email" class="form-control" id="email" placeholder="Enter email" required>
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="password" class="form-label">Password</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text"><i class="fas fa-lock"></i></span>
+                                        <input type="password" class="form-control" id="password" placeholder="Enter password" required>
+                                    </div>
+                                </div>
+                                <div class="mb-4">
+                                    <label for="role" class="form-label">Role</label>
+                                    <select class="form-select" id="role" required>
+                                        <option value="" selected disabled>Select role</option>
+                                        <option value="Admin">Administrator</option>
+                                        <option value="User">Standard User</option>
+                                        <option value="Special">Special Access</option>
+                                    </select>
+                                </div>
+                                <button type="submit" class="btn btn-primary w-100">
+                                    <i class="fas fa-user-plus me-2"></i>Create Account
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script>
+        // Set active nav link
+        document.addEventListener('DOMContentLoaded', function() {
+            // Highlight active nav link
+            const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+            document.querySelectorAll('.nav-link').forEach(link => {
+                if (link.getAttribute('href') === currentPage) {
+                    link.classList.add('active');
+                }
+            });
+            
+            // Enable Bootstrap tooltips
+            var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+            var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+                return new bootstrap.Tooltip(tooltipTriggerEl);
+            });
+            
+            // Account management functionality
+            const accountForm = document.getElementById('accountForm');
+            if (accountForm) {
+                accountForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    // Add account form submission logic here
+                    alert('Account added successfully!');
+                    accountForm.reset();
+                });
+            }
+            
+            // Delete account buttons
+            const deleteButtons = document.querySelectorAll('.btn-delete-account');
+            deleteButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    if (confirm('Are you sure you want to delete this account?')) {
+                        // Add delete logic here
+                        this.closest('.account-card').style.opacity = '0';
+                        setTimeout(() => {
+                            this.closest('.account-card').remove();
+                        }, 300);
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
